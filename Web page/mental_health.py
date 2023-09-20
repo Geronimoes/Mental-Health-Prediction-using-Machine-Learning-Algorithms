@@ -26,7 +26,7 @@ for (row, col) in data.iterrows():
     if str.lower(col.Gender) in trans_str:
         data['Gender'].replace(to_replace=col.Gender, value='trans', inplace=True)
 
-#Get rid of bullshit
+#Remove unneeded data
 stk_list = ['A little about you', 'p']
 data = data[~train_df['Gender'].isin(stk_list)]
 data['Gender']=data['Gender'].map({'male':0,'female':1, 'trans':2})
